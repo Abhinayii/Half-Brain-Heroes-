@@ -4,13 +4,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Half-Brain Heroes - Study Materials</title>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
-        input { width: 80%; padding: 10px; margin: 10px 0; font-size: 16px; }
-        .materials { max-width: 800px; margin: auto; text-align: left; }
-        .material { padding: 10px; border: 1px solid #ccc; margin: 5px; }
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: #121212;
+            color: #ffffff;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #333;
+            background-color: #333;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .materials {
+            max-width: 800px;
+            margin: auto;
+            text-align: left;
+        }
+        .material {
+            padding: 15px;
+            border: 1px solid #444;
+            margin: 5px;
+            border-radius: 5px;
+            background-color: #222;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        .material:hover {
+            transform: scale(1.05);
+            background-color: #333;
+        }
+        a {
+            color: #1e90ff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #ff9800;
+        }
+        .dark-mode-toggle {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            padding: 8px 15px;
+            background-color: #ff9800;
+            color: #000;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        .dark-mode-toggle:hover {
+            background-color: #ffb74d;
+        }
     </style>
 </head>
 <body>
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()">Toggle Mode</button>
     <h1>Half-Brain Heroes - Free Study Materials</h1>
     <input type="text" id="searchBox" onkeyup="searchMaterials()" placeholder="Search study materials..."><div class="materials" id="materialsList">
     <div class="material" data-category="CBSE"><a href="https://ncert.nic.in/textbook.php">CBSE NCERT Books</a></div>
@@ -32,6 +88,17 @@
             } else {
                 materials[i].style.display = "none";
             }
+        }
+    }
+    
+    function toggleDarkMode() {
+        document.body.classList.toggle("light-mode");
+        if (document.body.classList.contains("light-mode")) {
+            document.body.style.backgroundColor = "#ffffff";
+            document.body.style.color = "#000000";
+        } else {
+            document.body.style.backgroundColor = "#121212";
+            document.body.style.color = "#ffffff";
         }
     }
 </script>
