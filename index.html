@@ -2,106 +2,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Half-Brain Heroes - Study Materials</title>
+    <title>Half Brain Heroes - Free Education for Students</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 20px;
-            background-color: #121212;
-            color: #ffffff;
-            transition: background-color 0.3s ease, color 0.3s ease;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
         }
-        input {
-            width: 80%;
-            padding: 10px;
-            margin: 10px 0;
-            font-size: 16px;
-            border-radius: 5px;
-            border: 1px solid #333;
-            background-color: #333;
+        header {
+            background: #007bff;
             color: white;
-            transition: all 0.3s ease;
-        }
-        .materials {
-            max-width: 800px;
-            margin: auto;
-            text-align: left;
-        }
-        .material {
             padding: 15px;
-            border: 1px solid #444;
-            margin: 5px;
-            border-radius: 5px;
-            background-color: #222;
-            transition: transform 0.3s ease, background-color 0.3s ease;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
         }
-        .material:hover {
-            transform: scale(1.05);
-            background-color: #333;
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #0056b3;
+            padding: 10px;
         }
-        a {
-            color: #1e90ff;
+        nav a {
+            color: white;
             text-decoration: none;
-            transition: color 0.3s ease;
+            padding: 10px 20px;
+            font-size: 18px;
         }
-        a:hover {
-            color: #ff9800;
+        .container {
+            padding: 20px;
+            text-align: center;
         }
-        .dark-mode-toggle {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            padding: 8px 15px;
-            background-color: #ff9800;
-            color: #000;
+        .section {
+            background: white;
+            padding: 20px;
+            margin: 10px auto;
+            width: 80%;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .dark-mode {
+            background-color: #222;
+            color: white;
+        }
+        .toggle-btn {
+            background: #333;
+            color: white;
             border: none;
+            padding: 10px 20px;
             cursor: pointer;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-        }
-        .dark-mode-toggle:hover {
-            background-color: #ffb74d;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
-    <button class="dark-mode-toggle" onclick="toggleDarkMode()">Toggle Mode</button>
-    <h1>Half-Brain Heroes - Free Study Materials</h1>
-    <input type="text" id="searchBox" onkeyup="searchMaterials()" placeholder="Search study materials..."><div class="materials" id="materialsList">
-    <div class="material" data-category="CBSE"><a href="https://ncert.nic.in/textbook.php">CBSE NCERT Books</a></div>
-    <div class="material" data-category="ICSE"><a href="https://www.meritnation.com/">ICSE Study Notes</a></div>
-    <div class="material" data-category="State Board"><a href="https://epathshala.nic.in/">State Board Books</a></div>
-    <div class="material" data-category="JEE"><a href="https://www.examrace.com/">JEE Study Materials</a></div>
-    <div class="material" data-category="UPSC"><a href="https://unacademy.com/">UPSC Preparation</a></div>
-</div>
-
-<script>
-    function searchMaterials() {
-        let input = document.getElementById("searchBox").value.toLowerCase();
-        let materials = document.getElementsByClassName("material");
-        
-        for (let i = 0; i < materials.length; i++) {
-            let text = materials[i].innerText.toLowerCase();
-            if (text.includes(input)) {
-                materials[i].style.display = "block";
-            } else {
-                materials[i].style.display = "none";
-            }
+    <header>Half Brain Heroes - Free Education for Students</header>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Study Materials</a>
+        <a href="#">Quizzes</a>
+        <a href="#">Community</a>
+        <a href="#">Contact</a>
+    </nav>
+    <div class="container">
+        <div class="section">
+            <h2>Welcome to Half Brain Heroes!</h2>
+            <p>Providing free education and study materials for all students.</p>
+            <button class="toggle-btn" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+        </div>
+    </div>
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
         }
-    }
-    
-    function toggleDarkMode() {
-        document.body.classList.toggle("light-mode");
-        if (document.body.classList.contains("light-mode")) {
-            document.body.style.backgroundColor = "#ffffff";
-            document.body.style.color = "#000000";
-        } else {
-            document.body.style.backgroundColor = "#121212";
-            document.body.style.color = "#ffffff";
-        }
-    }
-</script>
-
+    </script>
 </body>
 </html>
