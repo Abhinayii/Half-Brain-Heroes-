@@ -1,56 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Half-Brain Heroes</title>
+    <title>Half-Brain Heroes - Study Materials</title>
     <style>
-        body {
-            background-color: #121212;
-            color: #ffffff;
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
-        .header {
-            font-size: 2rem;
-            margin-top: 20px;
-            color: #ff0000;
-        }
-        .section {
-            margin: 20px;
-            padding: 20px;
-            border-radius: 10px;
-            background-color: #1e1e1e;
-        }
-        a {
-            color: #ffcc00;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+        input { width: 80%; padding: 10px; margin: 10px 0; font-size: 16px; }
+        .materials { max-width: 800px; margin: auto; text-align: left; }
+        .material { padding: 10px; border: 1px solid #ccc; margin: 5px; }
     </style>
 </head>
 <body>
-    <h1 class="header">Welcome to Half-Brain Heroes 🧠💥</h1>
-    <p>Where learning is fun, free, and slightly insane!</p>
-    
-    <div class="section">
-        <h2>🔥 Free Learning Resources 🔥</h2>
-        <p><a href="https://cs50.harvard.edu">Harvard CS50 – Free CS Course</a></p>
-        <p><a href="https://ocw.mit.edu">MIT OpenCourseWare</a></p>
-        <p><a href="https://ai.google/education">Google AI Free Course</a></p>
-    </div>
-    
-    <div class="section">
-        <h2>📚 Free PDFs & Books 📚</h2>
-        <p><a href="https://libgen.is">Library Genesis – Download Books</a></p>
-        <p><a href="https://www.gutenberg.org">Project Gutenberg – Free Books</a></p>
-    </div>
-    
-    <div class="section">
-        <h2>😂 Memes & Motivation 😂</h2>
-        <p>“Learning is like a chimichanga – it’s better with some spice!”</p>
-    </div>
+    <h1>Half-Brain Heroes - Free Study Materials</h1>
+    <input type="text" id="searchBox" onkeyup="searchMaterials()" placeholder="Search study materials..."><div class="materials" id="materialsList">
+    <div class="material" data-category="CBSE"><a href="https://ncert.nic.in/textbook.php">CBSE NCERT Books</a></div>
+    <div class="material" data-category="ICSE"><a href="https://www.meritnation.com/">ICSE Study Notes</a></div>
+    <div class="material" data-category="State Board"><a href="https://epathshala.nic.in/">State Board Books</a></div>
+    <div class="material" data-category="JEE"><a href="https://www.examrace.com/">JEE Study Materials</a></div>
+    <div class="material" data-category="UPSC"><a href="https://unacademy.com/">UPSC Preparation</a></div>
+</div>
+
+<script>
+    function searchMaterials() {
+        let input = document.getElementById("searchBox").value.toLowerCase();
+        let materials = document.getElementsByClassName("material");
+        
+        for (let i = 0; i < materials.length; i++) {
+            let text = materials[i].innerText.toLowerCase();
+            if (text.includes(input)) {
+                materials[i].style.display = "block";
+            } else {
+                materials[i].style.display = "none";
+            }
+        }
+    }
+</script>
+
 </body>
 </html>
